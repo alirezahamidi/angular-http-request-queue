@@ -5,9 +5,7 @@ import { Request, RequestRunType, RequestType } from './Request';
 import { Observable } from 'rxjs';
 import { HttpReqeustOptions } from './Request/http-request-options';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AngularHttpRequestQueueService {
   queue: Queue;
 
