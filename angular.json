@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "angular-http-request-queue": {
+      "projectType": "library",
+      "root": "projects/angular-http-request-queue",
+      "sourceRoot": "projects/angular-http-request-queue/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-http-request-queue/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-http-request-queue/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-http-request-queue/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-http-request-queue/src/test.ts",
+            "tsConfig": "projects/angular-http-request-queue/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-http-request-queue/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-http-request-queue"
+}
