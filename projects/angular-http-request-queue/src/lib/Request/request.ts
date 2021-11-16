@@ -3,7 +3,6 @@ import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { RequestRunType } from './request-run-type';
 import { RequestType } from './request-type';
 import { HttpClient } from '@angular/common/http';
-import { ResponseBody } from '@models/response-body';
 
 export class Request<T> {
   private requestStatus: BehaviorSubject<string> = new BehaviorSubject<string>(
@@ -11,8 +10,8 @@ export class Request<T> {
   );
   public requestStatus$ = this.requestStatus.asObservable();
   private request$: Observable<any>;
-  private response: Subject<ResponseBody<T> | any> = new Subject<ResponseBody<T>>();
-  public response$: Observable<ResponseBody<T>> = this.response.asObservable();
+  private response: Subject<T | any> = new Subject<T>();
+  public response$: Observable<T> = this.response.asObservable();
   public accessible: boolean = true;
   private error = new Subject();
   public error$ = this.error.asObservable();
